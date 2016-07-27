@@ -1,0 +1,22 @@
+#!/usr/bin/perl -w
+
+use esmith::Build::CreateLinks qw(:all);
+
+#--------------------------------------------------
+# actions for nethserver-spamd-update event
+#--------------------------------------------------
+
+my $event = "nethserver-spamd-update";
+templates2events("/etc/mail/spamassassin/bwlist.cf", $event);
+templates2events("/etc/mail/spamassassin/score.cf", $event);
+event_services($event, qw(
+   spamassassin restart
+));
+event_actions($event, 'initialize-default-databases' => '00');
+
+#--------------------------------------------------
+# actions for nethserver-mail-filter-save event
+#--------------------------------------------------
+
+templates2events("/etc/mail/spamassassin/bwlist.cf", "nethserver-mail-filter-save");
+templates2events("/etc/mail/spamassassin/score.cf", "nethserver-mail-filter-save");
