@@ -1,6 +1,6 @@
 Name:		nethserver-spamd
-Version:	0.0.1
-Release: 	1%{?dist}
+Version: 1.0.0
+Release: 1%{?dist}
 Summary:	NethServer spamd
 Group:		Networking/Daemons
 License:	GPLv2
@@ -38,3 +38,6 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Mon Aug 08 2016 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.0.0-1
+- Replace Fetchmail with getmail - NethServer/dev#5021
+
