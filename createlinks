@@ -20,3 +20,7 @@ event_actions($event, 'initialize-default-databases' => '00');
 
 templates2events("/etc/mail/spamassassin/bwlist.cf", "nethserver-mail-filter-save");
 templates2events("/etc/mail/spamassassin/score.cf", "nethserver-mail-filter-save");
+
+event_services("nethserver-mail-filter-save", qw(
+   spamassassin restart
+));
