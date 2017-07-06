@@ -1,5 +1,5 @@
 Name:		nethserver-spamd
-Version: 1.0.0
+Version: 1.0.1
 Release: 1%{?dist}
 Summary:	NethServer spamd
 Group:		Networking/Daemons
@@ -38,6 +38,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Thu Jul 06 2017 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.0.1-1
+- spam score not applied for getmail - Bug NethServer/dev#5315
+
 * Mon Aug 08 2016 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.0.0-1
 - Replace Fetchmail with getmail - NethServer/dev#5021
 
